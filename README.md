@@ -112,4 +112,4 @@ ___
 
 ## ER図
 
-  <a href="https://gyazo.com/0ec23e5c1003e5520d4df149dd261de0"><img src="https://i.gyazo.com/0ec23e5c1003e5520d4df149dd261de0.png" alt="Image from Gyazo" width="1768"/></a>
+  <a href="https://gyazo.com/2c4430a7fdb6fade3c821c106e6fdb5d"><img src="https://i.gyazo.com/2c4430a7fdb6fade3c821c106e6fdb5d.png" alt="Image from Gyazo" width="1812"/></a>
