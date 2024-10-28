@@ -109,3 +109,7 @@ ___
 ## 画面遷移図
 
   Figma：https://www.figma.com/design/oiiDLF7YtafRtXDDK489il/%E5%8D%92%E6%A5%AD%E5%88%B6%E4%BD%9C%2F%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=0-1&t=lY9pUDIdo8Bjo6N3-1
+
+## ER図
+
+  <a href="https://gyazo.com/9797b2b7acc821f059c73b3faa3cfe28"><img src="https://i.gyazo.com/9797b2b7acc821f059c73b3faa3cfe28.png" alt="Image from Gyazo" width="1740"/></a>
