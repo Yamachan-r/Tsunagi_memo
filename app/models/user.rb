@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :family_groups, through: :user_family_groups
   has_many :medical_histories, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 40 }
