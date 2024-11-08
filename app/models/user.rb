@@ -8,6 +8,7 @@ class User < ApplicationRecord
   encrypts :uid
 
   validates :name, presence: true, length: { maximum: 40 }
+  validates :uid, uniqueness: true
 
   enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
 end
