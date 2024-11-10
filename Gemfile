@@ -45,6 +45,16 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # 認証機能にomniauth導入、LINEログイン実装
+  gem 'omniauth'
+  gem 'omniauth-line'
+  gem 'omniauth-rails_csrf_protection'
+end
+
+group :development, :test do
+  # .env読み込み用のgem
+  gem 'dotenv-rails'
 end
 
 group :development do
