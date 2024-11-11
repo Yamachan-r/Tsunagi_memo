@@ -1,0 +1,11 @@
+<% content_for :title, "所属している家族グループ一覧" %>
+
+<h1>FamilyGroup</h1>
+
+<div id="family_groups">
+  <% @family_groups.each do |group| %>
+    <%= render group %>
+  <% end %>
+</div>
+
+<%= link_to "New groups", new_family_group_path %>

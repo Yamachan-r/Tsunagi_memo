@@ -1,0 +1,9 @@
+<%= form_with model: @family_group, local: true do |form| %>
+  <div>
+    <%= form.label :name, "グループ名" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit "グループを作成" %>
+  </div>
+<% end %>
