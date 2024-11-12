@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # ログイン前後のトップ画面
   root "static_pages#top"
-  get "/after_login_page", to: "static_pages#after_login_page"
 
   # OmniAuthのログイン画面への遷移
   get "/auth/:provider/callback", to: "sessions#create"

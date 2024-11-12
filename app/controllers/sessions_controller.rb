@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       u.name = user_info["info"]["name"]
     end
     session[:user_id] = user.id
-    redirect_to after_login_page_path, notice: "ログインしました"
+    redirect_to family_groups_path, notice: "ログインしました"
   end
 
   def destroy
