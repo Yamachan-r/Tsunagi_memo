@@ -1,3 +1,7 @@
-<div class="family-group">
-  <h3><%= link_to family_group.name, "#" %></h3>
-</div>
+<% @family_groups.each do |group| %>
+  <div class="bg-white shadow-md rounded-lg p-4 text-left">
+    <h3 class="text-lg font-bold text-gray-800">
+      <%= link_to group.name, family_group_path(group.id), class: "text-blue-500 hover:underline" %>
+    </h3>
+  </div>
+<% end %>
