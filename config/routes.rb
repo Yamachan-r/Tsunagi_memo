@@ -7,7 +7,14 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   # 家族グループの設定
-  resources :family_groups, only: %i[index new create]
+  resources :family_groups do
+    member do
+      post :invite_member
+      delete :remove_member
+      post :generate_invite
+      get :join
+    end
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
