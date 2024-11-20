@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
+  # MVP時点ではアカウントのあるユーザーのみに対応、退会機能未実装。
+  # アカウントの無い人用に、newやdestroyが必要になる可能性あり。
+  resource :user, only: %i[show edit update]
+  resources :medical_histories
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
