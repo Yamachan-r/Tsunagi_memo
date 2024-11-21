@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   # MVP時点ではアカウントのあるユーザーのみに対応、退会機能未実装。
   # アカウントの無い人用に、newやdestroyが必要になる可能性あり。
-  resource :user, only: %i[show edit update]
+  resources :users, only: %i[show edit update]
   resources :medical_histories
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -30,7 +30,4 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/*
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
