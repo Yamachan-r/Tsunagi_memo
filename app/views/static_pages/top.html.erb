@@ -4,17 +4,21 @@
   <p class="mt-5 text-sm text-gray-500">現在ログインしているユーザーに合わせた情報が表示されます。</p>
 
   <% if current_user %>
-    <p class="mt-5 text-lg text-gray-700">ログインできました！</p>
     <p class="text-gray-800">ようこそ、<span class="font-bold"><%= current_user.name %></span>さん</p>
+    <div class="mt-10">
+      <%= link_to '所属している家族グループ一覧へ', family_groups_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+    </div>
+    <div class="mt-4">
+      <%= link_to '個人情報の登録画面へ', edit_user_path(current_user), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+    </div>
+    <div class="mt-10">
+      <%= link_to 'ログアウト', logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
+    </div>
   <% end %>
 
-  <div class="mt-6">
-    <%= link_to image_tag('btn_login_base.png', class: "mx-auto w-48"), '/auth/line' %>
-  </div>
-
-  <div class="mt-10">
-    <a href="<%= root_path %>" class="inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-      ホームに戻る
-    </a>
-  </div>
+  <% unless current_user %>
+    <div class="mt-6">
+      <%= link_to image_tag('btn_login_base.png', class: "mx-auto w-48"), '/auth/line' %>
+    </div>
+  <% end %>
 </div>

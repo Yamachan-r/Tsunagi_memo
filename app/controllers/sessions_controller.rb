@@ -17,13 +17,13 @@ class SessionsController < ApplicationController
     if session[:pending_invite_token].present?
       handle_pending_invite
     else
-    redirect_to family_groups_path, notice: "ログインしました"
+    redirect_to root_path, notice: "ログインしました"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: "ログアウトしました"
   end
 
   private

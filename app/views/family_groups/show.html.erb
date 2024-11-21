@@ -1,11 +1,3 @@
-<!-- app/views/family_groups/show.html.erb -->
-<% if flash[:notice] %>
-  <div style="color: #fff; background-color: #4CAF50; padding: 10px; border-radius: 5px; text-align: center; margin-bottom: 20px;">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
-
-
 <h1 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">家族グループ情報</h1>
 
 <div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; max-width: 600px; margin: auto;">
@@ -14,9 +6,9 @@
   
   <h2 style="color: #555;">メンバー</h2>
   <ul style="list-style: none; padding: 0;">
-    <% @family_group.users.each do |user| %>
+    <% @members.each do |user| %>
       <li style="background: #f9f9f9; padding: 10px; margin-bottom: 5px; border-radius: 5px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-        <%= user.name %>
+        <%= link_to user.name, user_path(user, from_family_group: @family_group.id) %>
       </li>
     <% end %>
   </ul>
@@ -44,6 +36,18 @@
     <% end %>
   <% end %>
 </div>
+
+  <div class="mt-10">
+    <%= link_to '所属している家族グループ一覧へ', family_groups_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "トップへ戻る", root_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'ログアウト', logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
+  </div>
 
 <script>
 function copyToClipboard() {
