@@ -46,9 +46,15 @@
 </div>
 
   <div class="mt-10">
-    <a href="<%= family_groups_path %>" class="inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
-      所属している家族グループ一覧へ
-    </a>
+    <%= link_to '所属している家族グループ一覧へ', family_groups_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to "トップへ戻る", root_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'ログアウト', logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
   </div>
 
 <script>
