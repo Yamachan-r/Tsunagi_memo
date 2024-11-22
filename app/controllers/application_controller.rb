@@ -17,14 +17,14 @@ class ApplicationController < ActionController::Base
     # グループが存在し、ログインユーザーが所属しているかを確認
     family_group = current_user.family_groups.find_by(id: group_id)
     unless family_group
-      redirect_to family_groups_path, alert: '不正なアクセスです。'
+      redirect_to family_groups_path, alert: "不正なアクセスです。"
       return false
     end
 
     # グループに属しているユーザーか確認
     user = family_group.users.find_by(id: user_id)
     unless user
-      redirect_to family_group_path(group_id), alert: 'このユーザーの情報を見る権限がありません。'
+      redirect_to family_group_path(group_id), alert: "このユーザーの情報を見る権限がありません。"
       return false
     end
 

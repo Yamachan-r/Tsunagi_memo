@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   def create
     user_info = request.env["omniauth.auth"]
     hashed_uid = User.hash_uid(user_info["uid"]) # UIDをハッシュ化
-  
+
     # ハッシュ化されたUIDでユーザーを検索または作成
     user = User.find_or_create_by(hashed_uid: hashed_uid) do |u|
       u.name = user_info["info"]["name"]
@@ -33,10 +33,10 @@ class SessionsController < ApplicationController
     if family_group
       current_user.family_groups << family_group unless current_user.family_groups.include?(family_group)
       session.delete(:pending_invite_token)
-      redirect_to family_group_path(family_group), notice: 'ログインしてグループに参加しました。'
+      redirect_to family_group_path(family_group), notice: "ログインしてグループに参加しました。"
     else
       session.delete(:pending_invite_token)
-      redirect_to family_groups_path, alert: '無効な招待リンクです。'
+      redirect_to family_groups_path, alert: "無効な招待リンクです。"
     end
   end
 end
