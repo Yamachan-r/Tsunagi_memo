@@ -48,7 +48,6 @@ class FamilyGroupsController < ApplicationController
         current_user.family_groups << @family_group unless current_user.family_groups.include?(@family_group)
         redirect_to @family_group, notice: 'グループに参加しました。'
       else
-        # セッションに招待トークンを保存
         session[:pending_invite_token] = params[:token]
         redirect_to '/auth/line', notice: 'グループに参加するにはログインしてください。'
       end
@@ -64,7 +63,7 @@ class FamilyGroupsController < ApplicationController
   end
 
   def set_family_group
-    @family_group = FamilyGroup.find(params[:id])
+    @family_group = FamilyGroup.find_by(id: params[:id])
   end
 
   def authorize_family_group
