@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_current_user, only: %i[edit update]
+  before_action :set_current_user, only: [:edit, :update]
   before_action :validate_user_group_membership, only: [:show]
 
   def show
