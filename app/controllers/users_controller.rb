@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to root_path, notice: "更新しました"
     else
-      flash.now["danger"] = t("defaults.flash_message.not_updated", item: User.model_name.human)
       render :edit, status: :unprocessable_entity
     end
   end
@@ -31,6 +30,19 @@ class UsersController < ApplicationController
   def validate_user_group_membership
     group_id = params[:from_family_group]
     user_id = params[:id]
-    validate_group_membership(group_id, user_id)
+
+    family_group = current_user.family_groups.find_by(id: group_id)
+    unless family_group
+      redirect_to family_groups_path, alert: "不正なアクセスです。"
+      return false
+    end
+
+    user = family_group.users.find_by(id: user_id)
+    unless user
+      redirect_to family_group_path(group_id), alert: "このユーザーの情報を見る権限がありません。"
+      return false
+    end
+
+    true
   end
 end
