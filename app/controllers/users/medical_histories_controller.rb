@@ -1,7 +1,7 @@
 class Users::MedicalHistoriesController < ApplicationController
   before_action :set_group
-  before_action :set_user, only: [:index, :show]
-  before_action :set_medical_history, only: [:show]
+  before_action :set_user, only: [ :index, :show ]
+  before_action :set_medical_history, only: [ :show ]
 
   def index
     @medical_histories = @user.medical_histories

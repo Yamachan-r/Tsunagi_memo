@@ -31,14 +31,14 @@
     </div>
   <% else %>
     <%= form_with(url: generate_invite_family_group_path(@family_group), local: true, method: :post, style: "text-align: center;") do %>
-      <%= submit_tag '招待リンクを生成', 
+      <%= submit_tag "招待リンクを生成", 
           style: "padding: 10px 15px; font-size: 14px; color: #fff; background-color: #4CAF50; border: none; border-radius: 5px; cursor: pointer;" %>
     <% end %>
   <% end %>
 </div>
 
   <div class="mt-10">
-    <%= link_to '所属している家族グループ一覧へ', family_groups_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+    <%= link_to "所属している家族グループ一覧へ", family_groups_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
   </div>
 
   <div class="mt-4">
@@ -46,14 +46,14 @@
   </div>
 
   <div class="mt-4">
-    <%= link_to 'ログアウト', logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
+    <%= link_to "ログアウト", logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
   </div>
 
 <script>
 function copyToClipboard() {
-  var copyText = document.querySelector('input[readonly]');
+  var copyText = document.querySelector("input[readonly]");
   copyText.select();
-  document.execCommand('copy');
-  alert('招待リンクをコピーしました！');
+  document.execCommand("copy");
+  alert("招待リンクをコピーしました！");
 }
 </script>

@@ -16,7 +16,7 @@ class MedicalHistoriesController < ApplicationController
     if @medical_history.save
       redirect_to medical_histories_path, notice: "病歴を登録しました。"
     else
-      flash[:alert] = '新規登録に失敗しました'
+      flash[:alert] = "新規登録に失敗しました"
       render :new, status: :unprocessable_entity
     end
   end
