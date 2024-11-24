@@ -1,7 +1,7 @@
 class FamilyGroupsController < ApplicationController
   before_action :set_family_group, only: [ :show, :invite_member, :generate_invite ]
   before_action :authorize_family_group, only: [ :show, :invite_member, :generate_invite ]
-  skip_before_action :require_login, only: %i[join]
+  skip_before_action :require_login, only: [ :join ]
 
   def index
     @family_groups = current_user.family_groups
