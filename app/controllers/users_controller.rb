@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     user = family_group.users.find_by(id: user_id)
     unless user
-      redirect_to family_group_path(group_id), alert: "このユーザーの情報を見る権限がありません。"
+      redirect_to family_group_path(group_id), alert: "指定されたユーザーが見つかりません。"
       return false
     end
 
