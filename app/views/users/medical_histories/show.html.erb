@@ -1,0 +1,25 @@
+<h1 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">
+  <%= @user.name %>の病歴詳細
+</h1>
+
+<div style="border: 1px solid #ddd; border-radius: 8px; padding: 20px; max-width: 600px; margin: auto;">
+  <h2 style="color: #555;">病名：</h2>
+  <p style="font-size: 18px; color: #333; font-weight: bold"><%= @medical_history.disease %></p>
+
+  <h2 style="color: #555;">発症年齢：</h2>
+  <p style="font-size: 18px; color: #333;"><%= @medical_history.age_at_diagnosis %></p>
+
+  <h2 style="color: #555;">治療状況：</h2>
+  <p style="font-size: 18px; color: #333;"><%= @medical_history.treatment_status.presence || "未記入" %></p>
+
+  <h2 style="color: #555;">備考：</h2>
+  <p style="font-size: 18px; color: #333; white-space: pre-wrap;"><%= @medical_history.disease_notes.presence || "なし" %></p>
+
+  <div class="mt-6" style="text-align: center;">
+    <%= link_to "基本情報へ戻る", user_path(@medical_history.user, from_family_group: @from_family_group), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+    <%= link_to "病歴一覧へ戻る", user_medical_histories_path(@medical_history.user, from_family_group: @from_family_group), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+  </div>
+  <div class="mt-6" style="text-align: center;">
+    <%= link_to "家族メンバー一覧へ戻る", family_group_path(@from_family_group), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+  </div>
+</div>

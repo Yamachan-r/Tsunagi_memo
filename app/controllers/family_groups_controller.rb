@@ -1,7 +1,7 @@
 class FamilyGroupsController < ApplicationController
-  before_action :set_family_group, only: [:show, :invite_member, :generate_invite]
-  before_action :authorize_family_group, only: [:show, :invite_member, :generate_invite]
-  skip_before_action :require_login, only: %i[join]
+  before_action :set_family_group, only: [ :show, :invite_member, :generate_invite ]
+  before_action :authorize_family_group, only: [ :show, :invite_member, :generate_invite ]
+  skip_before_action :require_login, only: [ :join ]
 
   def index
     @family_groups = current_user.family_groups
@@ -29,16 +29,16 @@ class FamilyGroupsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user
       @family_group.users << user
-      redirect_to @family_group, notice: 'メンバーが招待されました。'
+      redirect_to @family_group, notice: "メンバーが招待されました。"
     else
-      redirect_to @family_group, alert: 'ユーザーが見つかりません。'
+      redirect_to @family_group, alert: "ユーザーが見つかりません。"
     end
   end
 
   def generate_invite
     @family_group.generate_invite_token
     @invite_url = join_family_group_url(@family_group.invite_token)
-    redirect_to family_group_path(@family_group), notice: '招待リンクが生成されました！'
+    redirect_to family_group_path(@family_group), notice: "招待リンクが生成されました！"
   end
 
   def join
@@ -46,14 +46,13 @@ class FamilyGroupsController < ApplicationController
     if @family_group
       if current_user
         current_user.family_groups << @family_group unless current_user.family_groups.include?(@family_group)
-        redirect_to @family_group, notice: 'グループに参加しました。'
+        redirect_to @family_group, notice: "グループに参加しました。"
       else
-        # セッションに招待トークンを保存
         session[:pending_invite_token] = params[:token]
-        redirect_to '/auth/line', notice: 'グループに参加するにはログインしてください。'
+        redirect_to "/auth/line", notice: "グループに参加するにはログインしてください。"
       end
     else
-      redirect_to root_path, alert: '無効な招待リンクです。'
+      redirect_to root_path, alert: "無効な招待リンクです。"
     end
   end
 
@@ -64,12 +63,12 @@ class FamilyGroupsController < ApplicationController
   end
 
   def set_family_group
-    @family_group = FamilyGroup.find(params[:id])
+    @family_group = FamilyGroup.find_by(id: params[:id])
   end
 
   def authorize_family_group
     unless current_user.family_groups.include?(@family_group)
-      redirect_to family_groups_path, alert: 'アクセス権限がありません。'
+      redirect_to family_groups_path, alert: "アクセス権限がありません。"
     end
   end
 end

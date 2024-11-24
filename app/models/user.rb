@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :hashed_uid, uniqueness: true
 
   enum gender: { 男性: 0, 女性: 1, その他: 2 }
-  enum blood_type: { A型: 0, B型: 1, O型: 2, AB型: 3 ,不明: 4}
+  enum blood_type: { A型: 0, B型: 1, O型: 2, AB型: 3, 不明: 4 }
 
   # UIDをハッシュ化するメソッド
   def self.hash_uid(uid)

@@ -3,7 +3,6 @@ class MedicalHistory < ApplicationRecord
 
   encrypts :disease
   encrypts :treatment_status
-  encrypts :age_at_diagnosis
   encrypts :disease_notes
 
   validates :disease, presence: true, length: { maximum: 100 }

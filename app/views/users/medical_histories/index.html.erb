@@ -1,4 +1,6 @@
-<h1 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">病歴一覧</h1>
+<h1 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">
+  <%= @user.name %>の病歴一覧
+</h1>
 
 <div style="max-width: 800px; margin: auto;">
   <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
@@ -15,17 +17,14 @@
           <td style="padding: 10px; border: 1px solid #ddd;"><%= history.age_at_diagnosis %></td>
           <td style="padding: 10px; border: 1px solid #ddd;"><%= history.disease %></td>
           <td style="padding: 10px; border: 1px solid #ddd;">
-            <%= link_to "詳細を見る", medical_history_path(history.id), class: "inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+            <%= link_to "詳細を見る", user_medical_history_path(history.user, history.id, from_family_group: @from_family_group), class: "inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <div class="mt-10" style="text-align: center;">
-    <%= link_to "新規病歴登録画面へ", new_medical_history_path(current_user), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
-  </div>
   <div class="mt-6" style="text-align: center;">
-    <%= link_to "トップへ戻る", root_path, class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
+    <%= link_to "基本情報へ戻る", user_path(@user, from_family_group: @group.id), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded hover:bg-blue-600" %>
   </div>
 </div>
