@@ -11,6 +11,9 @@
     <div class="mt-4">
       <%= link_to '個人情報の登録画面へ', edit_user_path(current_user), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
     </div>
+    <div class="mt-4">
+      <%= link_to '自分の病歴一覧へ', medical_histories_path(current_user), class: "inline-block px-5 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" %>
+    </div>
     <div class="mt-10">
       <%= link_to 'ログアウト', logout_path, class: "inline-block px-5 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600" %>
     </div>
