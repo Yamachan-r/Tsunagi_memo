@@ -114,4 +114,4 @@ ___
 
 ## ER図
 
-  [![Image from Gyazo](https://i.gyazo.com/243e33655d36369755be32644729bf04.png)](https://gyazo.com/243e33655d36369755be32644729bf04)
+本リリースにむけ編集予定
